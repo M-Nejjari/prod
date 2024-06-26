@@ -47,7 +47,7 @@ jobs:
         working-directory: ./client
         # Build image with tag rakeshpotnuru/productivity-app:client
         run: |
-          docker build -t rakeshpotnuru/productivity-app:client-${{github.run_number}} -t rakeshpotnuru/productivity-app:client-latest .
+          docker build -t mnejjari/client:tagname-${{github.run_number}} -t mnejjari/client:tagname-latest .
 
       # Build a Docker image for the server application
       - name: Build Server Docker Image
@@ -55,14 +55,14 @@ jobs:
           ./server
           # Build image with tag rakeshpotnuru/productivity-app:server
         run: |
-          docker build -t rakeshpotnuru/productivity-app:server-${{github.run_number}} -t rakeshpotnuru/productivity-app:server-latest .
+          docker build -t mnejjari/server:tagname-latest-${{github.run_number}} -t mnejjari/server:tagname-latest-latest .
 
       # Build a Docker image for the NGINX reverse proxy
       - name: Build NGINX Docker Image
         working-directory: ./nginx
         # Build image with tag rakeshpotnuru/productivity-app:nginx
         run: |
-          docker build -t rakeshpotnuru/productivity-app:nginx-${{github.run_number}} -t rakeshpotnuru/productivity-app:nginx-latest .
+          docker build -t nginx:stable-perl-${{github.run_number}} -t nginx:stable-perl-latest .
 
       # Log in to Docker Hub using credentials from repository secrets
       - name: Log in to Docker Hub
