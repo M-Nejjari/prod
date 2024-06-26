@@ -54,7 +54,7 @@ jobs:
           ./server
           # Build image with tag rakeshpotnuru/productivity-app:server
         run: |
-          docker build -t mnejjari/server:tagname-latest-${{github.run_number}} -t mnejjari/server:tagname-latest.
+          docker build -t mnejjari/server:tagname-latest-${{github.run_number}} -t mnejjari/server:tagname-latest .
 
       # Build a Docker image for the NGINX reverse proxy
       - name: Build NGINX Docker Image
