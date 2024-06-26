@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   nginx:
-    image: rakeshpotnuru/productivity-app:nginx-latest
+    image: nginx:stable-perl-latest
     restart: always
     depends_on:
       - client
@@ -11,13 +11,13 @@ services:
       - "80:80"
 
   client:
-    image: rakeshpotnuru/productivity-app:client-latest
+    image: mnejjari/client:tagname-latest
     environment:
       - CHOKIDAR_USEPOLLING=true
       - REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
 
   server:
-    image: rakeshpotnuru/productivity-app:server-latest
+    image: mnejjari/server:tagname-latest
     environment:
       - MONGODB_URI=${MONGODB_URI}
       - TOKEN_KEY=${TOKEN_KEY}
